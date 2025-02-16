@@ -35,9 +35,13 @@ bool isService = false;
 bool renderSet = false;
 
 int main(int argc, char** argv) {
+    std::string conf_path = "config.ini";
+    if ( argc > 1  && strcmp(argv[1],"-c") == 0 ) {
+        conf_path = argv[2];
+    }
     bool isService = false;
 
-    Configuration config("config.ini");
+    Configuration config(conf_path);
     config.getConfiguration();
     RhodotronSimulator rhodotron(config);
     sim_ptr = &rhodotron;

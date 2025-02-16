@@ -12,6 +12,9 @@
 #include "TColor.h"
 #include "TPaveText.h"
 #include "TTimer.h"
+#include "TGLViewer.h"
+#include "TGeoManager.h"
+#include "TGeoVolume.h"
 #include <iostream>
 
 //namespace RhodotronSimulatorGUI::renderer{
@@ -54,6 +57,8 @@
         void _updateLegend(int log_index);
         void _updateLegend(float time);
         void _updateCavity();
+
+        void _render3D();
 
         int _indexFromTime(float time);
     public:

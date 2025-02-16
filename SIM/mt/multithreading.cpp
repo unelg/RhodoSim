@@ -40,7 +40,7 @@ void interactForSingleThread(InteractArguments& interact_arguments){
 
     for(int i = 0; i < e_size; i++){
         if ((*e_list)[i]->CreationTime() < interact_arguments.time){
-            vector3d acc = Interactor::q_EM_interaction_RK(*(*e_list)[i], *interact_arguments.E, 
+            vector3d acc = Interactor::q_EM_interaction_LF(*(*e_list)[i], *interact_arguments.E, 
                 *interact_arguments.B, interact_arguments.time_interval);
             
             (*e_list)[i]->move(interact_arguments.time_interval/2);

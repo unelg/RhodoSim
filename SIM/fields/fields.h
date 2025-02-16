@@ -91,7 +91,7 @@ struct RFFieldOnConstZPlane{
             int x_shift = 0, x_index = 0;
             for(double x = xmin; x < xmax + step_tolerance;){
                 RFFieldOnConstXYZPoint point;
-                if(y_index < field2D.size() && x_index < field2D[y_index].size()){
+                if(y_index < field2D.size() && x_index < field2D[y_index].field1D.size()){
                     if(y < field2D[y_index].y + step_tolerance && x > field2D[y_index].y- step_tolerance && 
                         x < field2D[y_index].field1D[x_index].x + step_tolerance && x > field2D[y_index].field1D[x_index].x - step_tolerance){
 

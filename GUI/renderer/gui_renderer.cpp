@@ -11,6 +11,8 @@
 #include "TSystem.h"
 #include "TPaveText.h"
 #include "TLegend.h"
+#include "TStyle.h"
+#include "TGLEmbeddedViewer.h"
 #include <thread>
 
 
@@ -292,25 +294,46 @@
         canvas_to_render_in->DrawBorder();
 
         // setup the cavity
-        _renderCavity();
+        //_renderCavity();
 
         // setup the electrons
-        _renderElectrons();
+        //_renderElectrons();
 
         // setup E field
-        _renderEField();
+        //_renderEField();
 
         // setup B field
-        _renderBField();
+        //_renderBField();
 
         // setup legend
-        _renderLegend();
+        //_renderLegend();
+
+        _render3D();
 
         canvas_to_render_in->GetCanvas()->Modified();
         canvas_to_render_in->GetCanvas()->Update();
 
         render_ready = true;
         //gSystem->Unlink("gui_output.gif");
+    }
+
+    void Renderer::_render3D(){
+        //uto viewer = new TGLEmbeddedViewer(canvas_to_render_in, canvas_to_render_in->GetCanvas());
+        //canvas_to_render_in->GetCanvas()->SetViewer3D(viewer);
+        //viewer->ZoomIn();
+        TGeoManager *manager = new TGeoManager();
+        TGeoVolume* top = manager->MakeBox("TOP", NULL, 10, 10, 10);
+
+        TGeoMaterial *matVacuum = new TGeoMaterial("Vacuum", 0,0,0);
+        TGeoMedium *Vacuum = new TGeoMedium("Vacuum",1, matVacuum);
+
+        manager->SetTopVolume(top);
+
+        auto cavity = manager->MakeTube("Cavity", Vacuum, 0.188, 0.753, 0.7);
+        top->AddNode(cavity, 1);
+
+        manager->CloseGeometry();
+        top->Draw();
     }
 #pragma endregion RENDER_FILLED
 

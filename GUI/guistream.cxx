@@ -140,7 +140,7 @@ namespace {
 nullptr
     };
     static const char* includePaths[] = {
-"/opt/homebrew/Cellar/root/6.28.04_1/include/root",
+"/opt/homebrew/Cellar/root/6.32.08/include/root",
 "/Users/mfurkaner/Desktop/Projeler/Cpp/RhodoSim/",
 nullptr
     };

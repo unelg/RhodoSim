@@ -12,14 +12,14 @@ MSG_BUILDING_FR=$(info        ********** Building FieldReducer **********)
 CPP=clang++
 CXX=$(shell root-config --cxx) -I. -O2 -std=c++17  $(shell `root-config --incdir`)
 DEBUGFLAG= -g
-CPPFLAGS= -std=c++17 -I=SIM/** -Wall -pedantic -pthread -O3 
-CPPSHAREDFLAGS= -std=c++17 -I=SIM/** -Wall -pedantic -O3 
+CPPFLAGS= -std=c++17 -I=SIM/** -Wall -pedantic -pthread -O2
+CPPSHAREDFLAGS= -std=c++17 -I=SIM/** -Wall -pedantic -O2
 
 LIBS= -L lib -lRhodoVector -lRhodoSimCore -lRhodoSim -lRhodoConfig -lRhodoDataStorage
 SHARED_LIBS= -lRhodoRender -lRhodoSimUIhandler 
 
 GUICPPFLAGS=-I=GUI/**
-GUI_LIBS= -L lib -lRhodoVector -lRhodoGUIframes -lRhodoGUIhelpers -lRhodoGUIdataprovider
+GUI_LIBS= -L lib -lRhodoVector -lRhodoGUIframes -lRhodoGUIhelpers -lRhodoGUIdataprovider -lGeom -lRGL
 
 DOBJS=SIM/simulation/simulation.o SIM/particles/particle.o SIM/particles/bunch.o SIM/particles/gun.o SIM/fields/fields.o SIM/interact/interactor.o SIM/basic/vector.o SIM/config/configuration.o SIM/mt/multithreading.o SIM/gnuplot/sim_renderer.o SIM/uihandler/ui_handler.o SIM/basic/datastorage.o 
 DOBJS_DBG=SIM/simulation/simulation_dbg.o SIM/particles/particle_dbg.o SIM/particles/bunch_dbg.o SIM/particles/gun_dbg.o SIM/fields/fields_dbg.o  SIM/interact/interactor_dbg.o SIM/basic/vector_dbg.o  SIM/config/configuration_dbg.o SIM/mt/multithreading_dbg.o SIM/gnuplot/sim_renderer_dbg.o SIM/uihandler/ui_handler_dbg.o SIM/basic/datastorage_dbg.o 
