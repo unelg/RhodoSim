@@ -1,3 +1,4 @@
+#include <mutex>
 #include "../basic/consts.h"
 #include "../basic/vector.h"
 #include "../fields/fields.h"
@@ -10,8 +11,6 @@ using namespace std;
 
 #ifndef GUN_H
 #define GUN_H
-#define RUNGE_KUTTA
-//#define LEAP_FROG
 
 
 class Gun{

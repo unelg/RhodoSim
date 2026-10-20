@@ -57,8 +57,8 @@ private:
     double gun_period;  bool gunPeriodIsSet = false;
     double num_of_e;        bool enumIsSet = false;
     double num_of_bunch;    bool bnumIsSet = false;
-    bool multi_thread;      bool mtIsSet = false;
-    unsigned int th_count;  bool thCountIsSet = false;
+    bool multi_thread = false;      bool mtIsSet = false;
+    unsigned int th_count = 1;  bool thCountIsSet = false;
     double r1;              bool r1IsSet = false;
     double r2;              bool r2IsSet = false;
     double Ein;             bool EinIsSet = false;

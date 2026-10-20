@@ -1,0 +1,6 @@
+# build outputs: the libraries (make libs), macOS debug bundles, and the GUI's ROOT dictionary (rootcint, each GUI build)
+lib/*
+!lib/.gitkeep
+*.dSYM/
+GUI/guistream.cxx
+GUI/guistream_rdict.pcm

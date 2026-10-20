@@ -30,13 +30,16 @@ void Bunch::interact(RFField& E, MagneticField& B, const double time, double tim
     for(int i = 0; i < e.size() ; i++){
 
         //#ifdef LEAP_FROG
-        Interactor::q_EM_interaction_LF(*e[i], E, B, time_interval);
+        vector3d acc = Interactor::q_EM_interaction_LF(*e[i], E, B, time_interval);
         //#endif
 
         #ifdef RUNGE_KUTTA
-        Interactor::q_EM_interaction_RK(*e[i], E, B, time_interval);
+        acc = Interactor::q_EM_interaction_RK(*e[i], E, B, time_interval);
         #endif
 
+        e[i]->move(time_interval/2);
+        e[i]->accelerate(acc, time_interval);
+        e[i]->move(time_interval/2);
     }
 }
 /*

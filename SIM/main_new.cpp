@@ -1,3 +1,4 @@
+#include <csignal>
 #include "simulation/simulation.h"
 #include "gnuplot/sim_renderer.h"
 #include "../GUI/comm/signal.h"
